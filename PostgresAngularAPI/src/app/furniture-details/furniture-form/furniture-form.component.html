@@ -1,0 +1,74 @@
+
+<div class="formAdd">
+    <form autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && submit(myForm)">
+        <div class="container">
+            <div class="row"  style="margin-top: 20px;">
+                <div class="col-md-3">
+                    <input type="hidden" name="id" [value]="furnService.furnitureData.furnitureId">
+ 
+                    <label for="furnitureName" class="float-left">Furniture Name</label>
+                    <div *ngIf="furnitureName.invalid && (furnitureName.touched || furnitureName.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="furnitureName" class="form-control" placeholder="Enter Name" #furnitureName="ngModel" [(ngModel)]="furnService.furnitureData.furnitureName" required>
+                </div>
+ 
+                <div class="col-md-3">
+                    <label for="brand" class="float-left">Brand</label>
+                    <div *ngIf="brand.invalid && (brand.touched || brand.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="brand" class="form-control" placeholder="Enter Last Name" #brand="ngModel" [(ngModel)]="furnService.furnitureData.brand" required>
+                </div>
+ 
+                <div class="col-md-3">
+                    <label for="cost" class="float-left">Price</label>
+                    <div *ngIf="cost.invalid && (cost.touched || cost.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="Email" name="cost" class="form-control" placeholder="Enter Email" #cost="ngModel" [(ngModel)]="furnService.furnitureData.cost" required>
+                </div>
+ 
+                </div>
+ 
+            <div class="row">
+                
+ 
+ 
+                <div class="col-md-3">
+                    <label for="furnitureTypeName" class="float-left">Furniture Type</label>
+                    <div *ngIf="furnitureTypeID.touched && furnitureTypeID.value===0" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    
+                    <select name="furnitureTypeID" class="form-control" #furnitureTypeID="ngModel" [(ngModel)]="furnService.furnitureData.furnitureTypeID" required>
+                        <option value="0">Please Select</option>
+                        <option  *ngFor="let desg of furnService.listfurnituretype" [ngValue]="desg.furnitureTypeID">{{ desg.furnitureTypeName }}</option>
+                    </select>
+                
+                </div>
+
+                <div class="col-md-9">
+                 <div class="row">
+                    
+                    <div class="col-md-7">
+
+                    </div>
+                    <div class="col-md-1">
+                        <label  class="float-left"></label>
+                    <button type="submit" [disabled]="furnitureTypeID.value===0"  class="btn" style="size: 300px;background-color:#49aedd; color: black;">Save</button>
+                    </div>
+                    <div class="col-md-1" >
+                        <label class="float-left"></label>
+                    <button type="reset" class="btn" style="background-color:#49aedd; color: black;">Reset</button>
+                    </div>
+                 </div>
+              
+                </div>
+            </div>
+            <br/>
+            
+ 
+        </div>
+    </form>
+ </div>

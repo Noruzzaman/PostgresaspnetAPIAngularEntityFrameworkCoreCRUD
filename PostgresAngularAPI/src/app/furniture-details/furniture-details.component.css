@@ -1,0 +1,22 @@
+#hashLink {
+    display: none;
+}
+
+#hashLink:target {
+    display: block;
+}
+
+a:link,
+a:visited {
+    background-color: #49aedd;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover,
+a:active {
+    background-color: #49aedd;
+}

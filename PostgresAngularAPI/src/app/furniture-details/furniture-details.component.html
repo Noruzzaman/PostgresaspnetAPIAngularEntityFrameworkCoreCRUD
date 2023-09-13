@@ -1,0 +1,45 @@
+
+<br/>
+<div >
+<br/>
+  <div id="hashLink" style="background-color: rgb(241, 225, 225);">   
+<div>
+  <div class="container"  >
+    <app-furniture-form></app-furniture-form>
+    </div>
+    <div style="margin-left: 92%;">
+     
+    <a type="button" href="#" style="text-decoration: none; margin-bottom: 10px; color: red;">Close</a>
+
+  </div>
+  </div>
+</div>
+<br/>
+<a id="addbutton" style="text-decoration: none;color: black;" href="#hashLink">Add new</a>
+ 
+<br/>
+<br/>
+<table class="table table-hover">
+    <thead   style="background-color:rgb(241, 225, 225);">
+     <tr>
+      <th style="width: 15%;">Furniture Name</th>
+      <th style="width: 15%;">Brand</th>
+      <th  style="width: 15%;">Price</th>
+      <th  style="width: 15%;">Furniture Type</th>
+      <th  style="width: 15%;">Action</th>
+     </tr>
+    </thead>
+    <tbody style="background-color:rgb(235, 231, 231); ">
+      <tr *ngFor="let furn of furnService.listfurnitur"> 
+        <td>{{furn.furnitureName}}</td>
+        <td>{{furn.brand}}</td>
+        <td>{{furn.cost}}</td>
+        <td>{{furn.furnitureTypeName}}</td>
+        <td>
+        <a href="#hashLink" style=" color: black;" (click)="populateFurniture(furn)" class="btn btn-default btn-sm">Edit</a>&nbsp;|&nbsp;
+
+          <a type="button" href="#" class="btn btn-default btn-sm" style="color: red;" (click)="delete(furn.furnitureId)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+</table>
